@@ -1,0 +1,42 @@
+{
+  "name": "bionnipon",
+  "version": "1.0.0",
+  "description": "1.Foi criado os repositorios seguindo o passo a passo do \"https://github.com/felipez3r0/workshop-node-prismav2/blob/main/README.md\", porem sem a criação do model e do cliente\r 2.Tambem não foi feito o passo 7 \"Middleware de tratamento de DTOs\"\r 3.Não foi tratado o erro no arquivo tsconfig.json",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run build && node dist/server.js",
+    "dev": "tsx watch src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1",
+    "prisma": "^6.19.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cabo-USBC/Bionnipon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Cabo-USBC/Bionnipon/issues"
+  },
+  "homepage": "https://github.com/Cabo-USBC/Bionnipon#readme"
+}

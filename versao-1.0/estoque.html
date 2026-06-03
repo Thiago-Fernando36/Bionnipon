@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bionnipon</title>
+    <link rel="stylesheet" href="css/estoque.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caladea:ital@1&family=Lora:wght@500&family=Rancho&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/6e9d1849e5.js" crossorigin="anonymous"></script>
+    <script src="funcaoCarregarCliente.js"></script>
+</head>
+
+<body>
+    <section class="home" id="home">
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="historico.html">Historico</a></li>
+                <li><a href="addCliente.html">Adicionar</a></li>
+            </ul>
+        </nav>
+    </section>
+    </header>
+   <!-- <div class = "listaEstoque"> Clientes</div>
+        <div id = "lista"></div>-->
+    <main>
+
+    <div class="controls">
+      <input id="search" type="search" placeholder="Buscar por nome..." />
+      <label for="view">Exibir como:</label>
+      <select id="view">
+        <option value="cards">Cards</option>
+        <option value="table">Tabela</option>
+        <option value="list">Lista</option>
+      </select>
+      <button id="reload">Recarregar</button>
+    </div>
+
+    <div id="status" class="status">Carregando...</div>
+
+    <section id="app" class="grid"></section>
+
+    <aside id="detail" class="detail hidden">
+      <button id="closeDetail" class="close">Fechar</button>
+      <div id="detailContent"></div>
+    </aside>
+  </main>
+   
+</body>
+
+
+

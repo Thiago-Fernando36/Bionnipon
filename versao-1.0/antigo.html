@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bionnipon</title>
+    <link rel="stylesheet" href="css/calendarionovo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caladea:ital@1&family=Lora:wght@500&family=Rancho&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/6e9d1849e5.js" crossorigin="anonymous"></script>
+    <script src="funcoes.js" defer></script>
+    <!--    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        header {
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .menu {
+        background-color: white;
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        z-index: 1;
+        border: 1px solid black 
+        }
+
+        .menu ul {
+        display: flex;
+        justify-content: space-around;
+        }
+
+        .menu li {
+        list-style:none;
+        }
+
+        .menu a {
+        padding: 15px 11px;
+        display: block;
+        border-radius: 40px;
+        transition: background-color 1s, color 1s;
+        }
+        .menu a:active,
+        .menu a:hover {
+        background-color: #24868F;
+        color: white;
+        }
+
+        a {
+        text-decoration: none;
+        }
+
+
+    </style>-->
+</head>
+<body>
+    <section class="home" id="home">
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="estoque.html">Estoque</a></li>
+                <li><a href="historico.html">Historico</a></li>
+            </ul>
+        </nav> 
+    </section>
+    </header>
+
+    <!-- Calendar Container -->
+    <div class="calendar">
+        <!-- Month and Year Header -->
+        <div class="wrapper">
+      <header>
+        <p class="current-date"></p>
+        <div class="icons">
+          <span id="prev" class="material-symbols-rounded">chevron_left</span>
+          <span id="next" class="material-symbols-rounded">chevron_right</span>
+        </div>
+      </header>
+
+        <!-- Days of the Week -->
+        <div class="calendar-days">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+
+        <!-- Calendar Dates -->
+        <div class="calendar-dates">
+            <!-- Blank spaces for days before the month starts on Friday -->
+            <div></div> <div></div> <div></div> <div></div> <div></div> <div class="today">1</div> <div>2</div> <div>3</div> <div>4</div> <div>5</div> <div>6</div> <div>7</div> <div>8</div> <div>9</div> <div>10</div> <div>11</div> <div>12</div> <div>13</div> <div>14</div> <div>15</div> <div>16</div> <div>17</div> <div>18</div> <div>19</div><div>20</div> <div>21</div> <div>22</div> <div>23</div> <div>24</div> <div>25</div> <div>26</div><div>27</div> <div>28</div> <div>29</div> <div>30</div> 
+         
+        
+      </section>  
+</body>
+</html>

@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #24868F;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+@media (min-width: 360px) {
+  body{
+    font-size: 14px;
+  }
+}
+@media (min-width: 400px) {
+  body{
+    font-size: 16px;
+  }
+}
+@media (min-width: 550px) {
+  body{
+    font-size: 22px;
+  }
+}
+@media (min-width: 1000px) {
+  body{
+    font-size: 30px;
+  }
+}
+
+header {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  border: 1px solid black 
+}
+
+.menu ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu li {
+  list-style:none;
+}
+
+.menu a {
+  padding: 15px 20px;
+  display: block;
+  border-radius: 40px;
+  transition: background-color 1s, color 1s;
+}
+.menu a:active,
+.menu a:hover {
+  background-color: #24868F;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  }
+
+/*a:hover {
+  
+}*/
+
+.site-title,
+.site-subtitle {
+  text-align: center;
+}
+
+.site-title{
+  font-size: 4em;
+  color: white;
+  font-family: 'Lora', serif;
+  text-shadow: 10px 10px black;
+  text-shadow: 0px 0px 10px white;
+}
+
+.site-subtitle{
+  color: black;
+  line-height: 2em;
+  font-family: 'Caladea', serif;
+}
+
+.site-subtitle1{
+  color: white;
+  font-size: 1.5em;
+  font-family: 'Lora', serif;
+}
+.Nossa-Empresa,
+.contato,
+.Portfólio {
+  padding: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    max-width: 900px;
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+label {
+    display: block;
+    margin-top: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 12px;
+}
+
+.lists {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    flex: 1;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.item {
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.msg {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.msg.success {
+    background: #e6ffed;
+    border: 1px solid #b7f0c9;
+}
+
+.msg.error {
+    background: #ffe6e6;
+    border: 1px solid #f0b7b7;
+}
+
+small.hint {
+    color: #666;
+    display: block;
+    margin-top: 4px;
+}

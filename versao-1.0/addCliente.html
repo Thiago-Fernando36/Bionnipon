@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bionippon</title>
+    <link rel="stylesheet" href="css/addCliente.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caladea:ital@1&family=Lora:wght@500&family=Rancho&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/6e9d1849e5.js" crossorigin="anonymous"></script>
+    <script src="funcaoAddCliente.js" defer></script>
+</head>
+<body>
+    <section class="home" id="home">
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html" style="font-family: 'Roboto', sans-serif;">Home</a></li>
+                <li><a href="calendario.html" style="font-family: 'Roboto', sans-serif;">Calendario</a></li>
+                <li><a href="clientes.html" style="font-family: 'Roboto', sans-serif;">Clientes</a></li>
+                <li><a href="historico.html" style="font-family: 'Roboto', sans-serif;">Historico</a></li>
+                <li><a href="addCliente.html" style="font-family: 'Roboto', sans-serif;">Adicionar</a></li>
+            </ul>
+        </nav>
+    </section>
+    </header>
+  <h1>Adicionar Clientes e Serviços</h1>
+
+  <div id="notification"></div>
+
+  <form id="clientForm">
+    <h2>Novo Cliente</h2>
+    <label>Nome
+      <input name="nome" required />
+    </label>
+    <label>Telefone
+      <input name="telefone" required />
+    </label>
+    <label>Endereço
+      <input name="endereco" />
+    </label>
+    <button type="submit">Adicionar Cliente</button>
+  </form>
+
+  <form id="serviceForm">
+    <h2>Novo Serviço</h2>
+    <label>Tipo
+      <input name="tipo" required />
+    </label>
+    <label>Data
+      <input name="data" type="date" />
+      <small class="hint">Formato ISO (YYYY-MM-DD). Opcional.</small>
+    </label>
+    <label>Prazo (dias)
+      <input name="prazo" type="number" min="0" />
+      <small class="hint">Número de dias para conclusão. Opcional.</small>
+    </label>
+    <label>Garantia
+      <input name="garantia" />
+      <small class="hint">Texto curto sobre garantia. Opcional.</small>
+    </label>
+    <label>Cliente (ID) — opcional
+      <input name="clienteId" />
+    </label>
+    <button type="submit">Adicionar Serviço</button>
+  </form>
+
+  <div>
+    <button id="refreshBtn">Atualizar listas</button>
+  </div>
+
+  <div class="lists" style="margin-top:12px;">
+    <div class="box">
+      <h3>Clientes</h3>
+      <div id="clientsList">Carregando...</div>
+    </div>
+    <div class="box">
+      <h3>Serviços</h3>
+      <div id="servicesList">Carregando...</div>
+    </div>
+  </div>
+
+  
+</body>
+</html>
