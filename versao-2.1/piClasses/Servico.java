@@ -1,123 +1,140 @@
 package piClasses;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Servico {
-	private int idServico;
-	private String dataInicio;
-	private double valor;
-	private String endereco;
-    private String descricao;
-    private String clienteNome;
-    private LocalDate dataExecucao;
+    
+    // 1. ATRIBUTOS PRIVADOS (Mapeados com as colunas reais da tabela 'Servico' do banco)
+    private int idServico;
+    private int idUsuario; // FK para a tabela Cliente
+    private String dataInicio; // Pode ser alterado para LocalDateTime se desejar usar o TIMESTAMP do banco
+    private String dataFim;    // Substitui a antiga 'dataExecucao'
+    private double valor;
+    private String endereco;
+    private String cidade;
+    private String cep;
+
+    // Atributo auxiliar para manter a lógica de garantia que você tinha
     private int mesesGarantia;
 
-    
+    // 2. CONSTRUTOR VAZIO
     public Servico() {
-		
-	}
-    public Servico(String descricao, String clienteNome, LocalDate dataExecucao, int mesesGarantia, int idServico, String dataInicio, double valor, String endereco) {
-        this.descricao = descricao;
-        this.clienteNome = clienteNome;
-        this.dataExecucao = dataExecucao;
-        this.mesesGarantia = mesesGarantia;
-        this.dataInicio = dataInicio;
-        this.endereco = endereco;
-        this.idServico = idServico;
-        this.valor = valor;
     }
-    public String toString() {
-    	return "["+idServico+","+dataInicio+","+valor+","+endereco+","+descricao+","+clienteNome+","+dataExecucao+","+mesesGarantia+"]";
-    }
-    /*public double calcularValorTotal() {
-    	
-    }
-    public void iniciaServico() {
-    	
-    }
-    public void finalizaServico() {
-    	
-    }
-    public Garantia emitirGarantia() {
-    	
-    }*/
 
+    // 3. CONSTRUTOR COMPLETO
+    public Servico(int idServico, int idUsuario, String dataInicio, String dataFim, double valor, String endereco, String cidade, String cep) {
+        this.idServico = idServico;
+        this.idUsuario = idUsuario;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.valor = valor;
+        this.endereco = endereco;
+        this.cidade = cidade;
+        this.cep = cep;
+    }
+
+    // 4. MÉTODOS DE REGRA DE NEGÓCIO (Ajustados para usar a nova estrutura de dados)
+    
     public boolean isGarantiaAtiva() {
-        LocalDate dataVencimento = dataExecucao.plusMonths(mesesGarantia);
-        return LocalDate.now().isBefore(dataVencimento);
+        if (dataFim == null || dataFim.trim().isEmpty()) {
+            return false; // Serviço nem foi finalizado ainda
+        }
+        try {
+            // Converte a string dataFim (no formato AAAA-MM-DD ou semelhante) para LocalDate
+            // Se o seu banco salvar com hora (TIMESTAMP), ajuste o parse.
+            LocalDate fim = LocalDate.parse(dataFim.substring(0, 10)); 
+            LocalDate dataVencimento = fim.plusMonths(mesesGarantia);
+            return LocalDate.now().isBefore(dataVencimento);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void exibirRelatorio() {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String status = isGarantiaAtiva() ? "ATIVA" : "EXPIRADA";
-        System.out.println("Serviço: " + descricao + " | Cliente: " + clienteNome + 
-                           " | Data: " + dataExecucao.format(fmt) + " | Status: " + status);
+        System.out.println("Serviço ID: " + idServico + " | ID Cliente: " + idUsuario + 
+                           " | Finalizado em: " + dataFim + " | Status Garantia: " + status);
     }
-    
+
+    // 5. GETTERS E SETTERS
     public int getIdServico() {
-		return idServico;
-	}
+        return idServico;
+    }
 
-	public void setIdServico(int idServico) {
-		this.idServico = idServico;
-	}
+    public void setIdServico(int idServico) {
+        this.idServico = idServico;
+    }
 
-	public String getDataInicio() {
-		return dataInicio;
-	}
+    public int getIdUsuario() {
+        return idUsuario;
+    }
 
-	public void setDataInicio(String dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-	public double getValor() {
-		return valor;
-	}
+    public String getDataInicio() {
+        return dataInicio;
+    }
 
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public String getDataFim() {
+        return dataFim;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    public void setDataFim(String dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public double getValor() {
+        return valor;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 
-	public String getClienteNome() {
-		return clienteNome;
-	}
+    public String getEndereco() {
+        return endereco;
+    }
 
-	public void setClienteNome(String clienteNome) {
-		this.clienteNome = clienteNome;
-	}
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
-	public LocalDate getDataExecucao() {
-		return dataExecucao;
-	}
+    public String getCidade() {
+        return cidade;
+    }
 
-	public void setDataExecucao(LocalDate dataExecucao) {
-		this.dataExecucao = dataExecucao;
-	}
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
-	public int getMesesGarantia() {
-		return mesesGarantia;
-	}
+    public String getCEP() {
+        return cep;
+    }
 
-	public void setMesesGarantia(int mesesGarantia) {
-		this.mesesGarantia = mesesGarantia;
-	}
+    public void setCEP(String cep) {
+        this.cep = cep;
+    }
 
-	
+    public int getMesesGarantia() {
+        return mesesGarantia;
+    }
+
+    public void setMesesGarantia(int mesesGarantia) {
+        this.mesesGarantia = mesesGarantia;
+    }
+
+    // 6. TO STRING
+    @Override
+    public String toString() {
+        return "[" + idServico + "," + idUsuario + "," + dataInicio + "," + dataFim + "," + valor + "," + endereco + "," + cidade + "," + cep + "]";
+    }
 }
